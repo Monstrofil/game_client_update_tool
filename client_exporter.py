@@ -30,7 +30,6 @@ class UpdatesHelper(object):
         try:
             for file in files:
                 if file.endswith('001'):
-                    os.system('7z x %s -oGAME' % file)
                     Popen(
                         ['7z', 'x', file, '-oGAME']).communicate()
                     break
@@ -76,7 +75,8 @@ class UpdatesHelper(object):
         :rtype: str 
         """
 
-        os.system('bash -c "wget %s"' % link)
+        Popen(
+            ['bash', '-c', 'wget %s' % link]).communicate()
         filename = os.path.basename(link)
         return filename
 
