@@ -59,8 +59,9 @@ class UpdatesHelper(object):
         """
         url = "http://update.worldofwarships.ru"
         data = dict(
-            target='client',
-            client_ver='unknown'
+            target='sdcontent',
+            sdcontent_ver='unknown',
+            content_lang='ru'
         )
         xml = requests.get(url, data).content
         links = etree.fromstring(xml).xpath('content/file/web_seeds/url/text()')
